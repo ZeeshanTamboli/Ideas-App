@@ -1,0 +1,22 @@
+<h1 class="mb-3">
+  Welcome {{user.firstName}}</h1>
+
+<div class="mb-3">
+  <a href="https://twitter.com/intent/tweet?screen_name=gig_india&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet this to @gig_india</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<h4>Your Ideas</h4>
+{{#each ideas}}
+<div class="card card-body mb-2">
+  <p>{{idea}}</p>
+  <a class="btn btn-dark btn-block mb-2" href="/ideas/edit/{{id}}">Edit</a>
+  <form action="/ideas/my/{{id}}?_method=DELETE" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete" class="btn btn-danger btn-block">
+  </form>
+</div>
+{{else}}
+<p>No Ideas Listed</p>
+{{/each}}
+<a class="btn btn-primary" href="/ideas/add">Add New Idea</a>

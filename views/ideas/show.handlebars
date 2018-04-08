@@ -1,0 +1,12 @@
+<h1>{{user.firstName}}'s Ideas</h1>
+{{#each ideas}}
+<div class="card card-body mb-2">
+  <p>{{idea}}</p>
+  <div class="ml-auto">
+    <p>
+      <strong>Created On: </strong>
+      <span>{{formatDate idea.date 'MMMM Do YYYY'}}</span>
+    </p>
+  </div>
+</div>
+{{/each}}

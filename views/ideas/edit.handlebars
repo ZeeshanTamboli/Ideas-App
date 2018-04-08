@@ -1,0 +1,11 @@
+<div class="card card-body">
+  <h3>Edit Ideas</h3>
+  <form action="/ideas/my/{{idea.id}}?_method=PUT" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="form-group">
+      <label for="idea">Idea</label>
+      <input type="text" name="idea" class="form-control" value="{{idea.idea}}" required>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+</div>

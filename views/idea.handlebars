@@ -1,0 +1,25 @@
+<h1>All Ideas</h1>
+
+<div class="mb-3">
+  <a href="/ideas/ideas_on_mentioned_date">Today's ideas</a>
+</div>
+
+{{#each ideas}}
+<div class="card card-body mb-2">
+  <p>{{idea}}</p>
+  <p class="ml-auto">
+    <strong>Posted By: </strong>
+    <a href="/ideas/user/{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+    <div class="ml-auto">
+      <p>
+        <strong>Created On: </strong>
+        <span>{{formatDate idea.date 'MMMM Do YYYY'}}</span>
+      </p>
+    </div>
+  </p>
+</div>
+{{else}}
+<p>No Ideas Listed</p>
+{{/each}}
+<br>
+<input type="submit" value="Export to pdf" class="btn btn-primary mb-4" onclick="{{PDFgenerator ideas}}">
