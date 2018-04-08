@@ -19,6 +19,7 @@
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
     "moment": "^2.22.0",
+    "moment-timezone": "^0.5.14",
     "mongodb": "^3.0.5",
     "mongoose": "^5.0.13",
     "passport": "^0.4.0",

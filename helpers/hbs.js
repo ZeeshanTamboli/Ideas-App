@@ -1,10 +1,13 @@
-const moment = require('moment');
+const moment = require('moment-timezone');
+
 const pdf = require('pdfkit');
 const fs = require('fs');
 
 module.exports = {
   formatDate(date, format) {
-    return moment(date).format(format);
+    return moment(date)
+      .tz('Asia/Kolkata')
+      .format(format);
   },
   PDFgenerator(ideas) {
     const myDoc = new pdf();
