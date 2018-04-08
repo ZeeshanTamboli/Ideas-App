@@ -20,14 +20,14 @@ router.get('/my', ensureAuthenticated, (req, res) => {
 });
 
 //List ideas from a user
-router.get('/user/:firstName', (req, res) => {
-  Idea.find({ user: req.params.firstName })
+router.get('/user/:userId', (req, res) => {
+  Idea.find({ user: req.params.userId })
     .populate('user')
     .sort({ date: 'desc' })
     .then(ideas => {
       res.render('ideas/show', {
         ideas,
-        user: ideas[0].user
+        firstName: ideas[0].user.firstName
       });
     });
 });
