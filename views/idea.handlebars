@@ -1,7 +1,9 @@
-<h1>All Ideas</h1>
+<h1 class="mb-3">All Ideas</h1>
 
-<div class="mb-3">
-  <a href="/ideas/ideas_on_mentioned_date">Today's ideas</a>
+<div id="btn-success">
+  <form action="/ideas/ideas_on_mentioned_date" method="get">
+    <input type="submit" value="Ideas of the day" class="btn btn-secondary mb-4">
+  </form>
 </div>
 
 {{#each ideas}}
@@ -13,7 +15,7 @@
     <div class="ml-auto">
       <p>
         <strong>Created On: </strong>
-        <span>{{formatDate idea.date 'MMMM Do YYYY'}}</span>
+        <span>{{formatDate date 'MMMM Do YYYY'}}</span>
       </p>
     </div>
   </p>

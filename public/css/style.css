@@ -1,3 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+#btn-success {
+  text-align: center;
+}
+
 .logo {
   width: 130px;
   margin: auto;
