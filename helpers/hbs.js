@@ -5,9 +5,13 @@ const fs = require('fs');
 
 module.exports = {
   formatDate(date, format) {
-    return moment(date)
-      .tz('Asia/Kolkata')
-      .format(format);
+    if (process.env.NODE_ENV === 'production') {
+      return moment(date)
+        .tz('Asia/Kolkata')
+        .format(format);
+    } else {
+      return moment(date).format(format);
+    }
   },
   PDFgenerator(ideas) {
     const myDoc = new pdf();

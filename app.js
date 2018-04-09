@@ -9,7 +9,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const { Idea } = require('./models/Idea');
 const { ensureAuthenticated } = require('./helpers/auth');
 
@@ -108,8 +108,14 @@ app.get('/ideas', (req, res) => {
 
 //Show today's ideas
 app.get('/ideas/ideas_on_mentioned_date', (req, res) => {
-  const today = moment().startOf('day');
-  const tomorrow = moment(today).add(1, 'days');
+  let t = moment();
+  if (process.env.NODE_ENV === 'production') {
+    var today = t.tz('Asia/Kolkata').startOf('day');
+    var tomorrow = moment(today).add(1, 'days');
+  } else {
+    var today = t.startOf('day');
+    var tomorrow = moment(today).add(1, 'days');
+  }
 
   Idea.find({
     date: {
