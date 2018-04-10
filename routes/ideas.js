@@ -25,6 +25,7 @@ router.get('/user/:userId', (req, res) => {
     .populate('user')
     .sort({ date: 'desc' })
     .then(ideas => {
+      console.log(ideas);
       res.render('ideas/show', {
         ideas,
         firstName: ideas[0].user.firstName
